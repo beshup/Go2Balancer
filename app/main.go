@@ -82,7 +82,7 @@ func main() {
 
 	defer server.Close()
 
-	go HandleCollapse()
+	go HandleCollapse(library)
 
 	for {
 		conn, err := server.Accept()
