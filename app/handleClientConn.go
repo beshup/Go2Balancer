@@ -22,8 +22,8 @@ func HandleClientConn(conn net.Conn, l *Library) {
 		}
 
 		// here forward data to chosen backend server
-		result := "jfc"
-		conn.Write([]byte(string(result)))
+		//result := "jfc"
+		// conn.Write([]byte(string(result)))
 	}
 	conn.Close()
 }
