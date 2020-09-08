@@ -30,5 +30,6 @@ func AddWorker(addr string, l *Library, addrType string) {
 	w.backlog = 0
 
 	l.workers = append(l.workers, w)
+	l.num += 1
 	fmt.Printf("%s added to pool.\n", addr)
 }

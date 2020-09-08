@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func HandleClientConn(conn net.Conn) {
+func HandleClientConn(conn net.Conn, l *Library) {
 	fmt.Printf("Serving %s \n", conn.RemoteAddr().String())
 	for {
 		data, err := bufio.NewReader(conn).ReadString('\n')

@@ -13,12 +13,12 @@ type Worker struct {
 	address string
 	on      bool
 	mux     sync.RWMutex
-	backlog uint64
+	backlog int
 }
 
 type Library struct {
 	workers []*Worker
-	num     uint64
+	num     int
 }
 
 /*
@@ -82,12 +82,14 @@ func main() {
 
 	defer server.Close()
 
+	go HandleCollapse()
+
 	for {
 		conn, err := server.Accept()
 		if err != nil {
 			fmt.Println(err)
 			return
 		}
-		go HandleClientConn(conn)
+		go HandleClientConn(conn, library)
 	}
 }
